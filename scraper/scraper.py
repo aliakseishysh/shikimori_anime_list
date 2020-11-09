@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
-from time import sleep
+
 
 anime_list = {
 }
 
-user_name = 'setevoybog'
+user_name = 'M.M'
 request_url = f'https://shikimori.one/{user_name}/list/anime/mylist/completed/order-by/ranked/page/'
 request_headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
@@ -30,7 +30,7 @@ def parse_page(page_number):
 def main():
     page_number = 1
     i = 1
-    with open(f'anime_list.txt', 'w', encoding='utf-8') as f:
+    with open(f'../anime_list.txt', 'w', encoding='utf-8') as f:
         f.write('Название: Ссылка\n')
         while True:
             if parse_page(page_number) == None:
@@ -40,5 +40,3 @@ def main():
         for key, value in anime_list.items():
             f.write(f'{i}) {key}: {value}\n')
             i += 1
-            
-main()

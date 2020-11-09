@@ -3,3 +3,10 @@ __pycache__
 
 # git
 .git/
+
+# idea
+.idea/
+
+# venv
+.venv/
+Pipfile.lock
